@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/OnlineMedicineShoppingSystem.jar OnlineMedicineShoppingSystem.jar
-ENTRYPOINT ["java", "-jar","OnlineMedicineShoppingSystem.jar"]
+ADD target/onlinemedicineshoppingsystem.jar onlinemedicineshoppingsystem.jar
+ENTRYPOINT ["java", "-jar","onlinemedicineshoppingsystem.jar"]
 EXPOSE 8080
