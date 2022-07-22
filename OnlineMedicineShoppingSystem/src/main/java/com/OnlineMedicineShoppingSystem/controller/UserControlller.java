@@ -90,7 +90,7 @@ public class UserControlller {
         Cart c;
             if(json.containsKey("product_id") && json.containsKey("quantity")){
                 if(login_status!=true){return new ResponseEntity<String>("Login to add to cart",HttpStatus.CONFLICT);}
-                c = new Cart(logedin_user.getUser_id(),(int)json.get("product_id"),(int)json.get("quantity"));
+                c = new Cart(logedin_user.getUser_id(),Integer.parseInt((String) json.get("product_id")),(int)json.get("quantity"));
                 if(productservice.fetchProductById(c.getProduct_id())==null){return new ResponseEntity<String>("Product id not present",HttpStatus.CONFLICT);}
                 if(cartservice.saveCart(c)){return new ResponseEntity<String>("Added Successfully to Cart",HttpStatus.OK);}
                 return new ResponseEntity<String>("Item already in the cart, Please update it",HttpStatus.CONFLICT);
